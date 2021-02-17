@@ -4,76 +4,130 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   List<Color> colors = [
-    Colors.amberAccent,
     Colors.blue,
+    Colors.green,
     Colors.black,
-    Colors.brown,
+    Colors.pink,
+    Colors.purple,
+    Colors.red,
+  ];
+  List<String> nama = [
+    'erik',
+    'refan',
+    'raden',
+    'boces',
+    'rafli',
+    'kemal',
+    'boa',
+  ];
+  List<String> nama1 = [
+    'erik',
+    'refan',
+    'raden',
+    'boces',
+    'rafli',
+    'boa',
+    'asep',
+    'asep seblak',
+    'ewok',
+    'fatur',
+    'rama',
+    'bangau',
+  ];
+  List<Color> warna = [
+    Colors.purple,
+    Colors.red,
+    Colors.black,
+    Colors.red,
     Colors.blueAccent,
+    Colors.yellow,
+    Colors.pink,
+    Colors.blue,
+    Colors.grey,
+    Colors.red,
+    Colors.lime,
     Colors.brown,
   ];
+
   @override
   Widget build(BuildContext context) {
-    final title = 'Nyobain ListView';
-
     return MaterialApp(
-      title: title,
       home: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
               child: Column(
-                children: [
+                children: <Widget>[
                   Container(
                     height: 200,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        Container(
-                          width: 200,
-                          color: Colors.grey,
-                        ),
-                        Container(
-                          width: 200,
-                          color: Colors.blueGrey,
-                        ),
-                        Container(
-                          width: 200,
-                          color: Colors.green,
-                        ),
-                        Container(
-                          width: 200,
-                          color: Colors.grey,
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 200,
-                    width: 300,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: colors.length,
                         itemBuilder: (context, index) {
                           return Container(
-                            width: 400,
-                            height: 150,
+                            margin: new EdgeInsets.all(5),
+                            width: 150,
+                            height: 80,
                             color: colors[index],
+                            child: Center(
+                              child: Text(nama[index]),
+                            ),
+                          );
+                        }),
+                  ),
+                  Padding(padding: const EdgeInsets.all(10)),
+                  Container(
+                    height: 200,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: colors.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: new EdgeInsets.all(5),
+                            width: 150,
+                            height: 80,
+                            color: colors[index],
+                            child: Center(
+                              child: Text(nama[index]),
+                            ),
+                          );
+                        }),
+                  ),
+                  Padding(padding: const EdgeInsets.all(100)),
+                  Container(
+                    height: 80,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: colors.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: new EdgeInsets.all(5),
+                            width: 70,
+                            height: 80,
+                            color: colors[index],
+                            child: Center(
+                              child: Text(nama[index]),
+                            ),
                           );
                         }),
                   ),
                   Container(
-                    height: 200,
-                    width: 500,
+                    height: 80,
                     child: ListView.builder(
-                        itemCount: colors.length,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: warna.length,
                         itemBuilder: (context, index) {
                           return Container(
-                            width: 300,
-                            height: 400,
-                            color: colors[index],
+                            margin: new EdgeInsets.all(5),
+                            width: 70,
+                            height: 80,
+                            color: warna[index],
+                            child: Center(
+                              child: Text(nama1[index]),
+                            ),
                           );
                         }),
-                  )
+                  ),
                 ],
               ),
             ),
